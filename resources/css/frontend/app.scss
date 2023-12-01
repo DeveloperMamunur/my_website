@@ -1,0 +1,20 @@
+@import "./vendors/fonts";
+@import "./vendors/veriables";
+@import "./mixins/media";
+@import "./vendors/reset";
+
+@import  "./components/button";
+@import  "./components/dropdownbtn";
+@import  "./components/table";
+@import  "./components/modal";
+@import  "./components/form";
+@import  "./components/common_heading";
+@import  "./components/toaster";
+
+@import "./layouts/xtralinks";
+@import "./layouts/container";
+@import "./layouts/header";
+@import "./layouts/main";
+@import "./layouts/footer";
+
+@import "./views/home";

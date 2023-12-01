@@ -1,0 +1,64 @@
+.top_navbar{
+    position: fixed;
+    left: 250px;
+    top: 0;
+    width: calc(100% - 250px);
+    z-index: 1050;
+    transition: .5s ease-in;
+    @include xs (){
+        width: calc(100% - 0px);
+        left: 0px;
+    }
+    @include sm (){
+        width: calc(100% - 60px);
+        left: 60px;
+    }
+    @include md (){
+        width: calc(100% - 60px);
+        left: 60px;
+    }
+    nav{
+        height: 64px;
+        ul{
+            li{
+                &.account{
+                    position: relative;
+                    display: inline-block;
+                    .profile{
+                        display: none;
+                        position: absolute;
+                        right: 0;
+                        top: 35px;
+                        z-index: 100;
+                        ul{
+                            display: grid;
+                            min-width: max-content;
+                            background: var(--bg_dropdown);
+                            margin-top: 10px;
+                            li{
+                                list-style: none;
+                                a{
+                                    color:  var(--gray);
+                                    padding: 5px 15px;
+                                    text-decoration: none;
+                                    width: 100%;
+                                    display: inline-block;
+                                }
+                                &:hover{
+                                    background: var(--bread_bg);
+                                }
+                            }
+                        }
+
+                        &.show {display: block;}
+                    }
+                    &:hover {
+                        .profile{
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

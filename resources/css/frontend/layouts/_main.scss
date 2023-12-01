@@ -1,0 +1,63 @@
+main{
+    width: 100%;
+    margin-top: 70px;
+    section{
+        min-height: 850px;
+        width: 100%;
+        padding: 60px 0;
+        .section_heading{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 70px;
+            .common_heading{
+                position: relative;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: var(--font_color);
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                background-image: repeating-linear-gradient(105deg, #ffb338 1%, #3e2904 5%, #ffb338 12%);
+                filter: drop-shadow(.5px 1.5px 1.5px black);
+                font-size: 45px;
+                @include sm(){
+                    font-size: 30px;
+                }
+                @include xs(){
+                    font-size: 26px;
+                }
+                
+                &::before{
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    bottom: -20px;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background-color: #c12ffe;
+                    transform: translateX(-50%);
+                    color: transparent;
+                    background-image: repeating-linear-gradient(45deg, #ffb338 30%, #3e2904 60%, #ffb338 100%);
+                    filter: drop-shadow(2px 6px 6px black);
+                }
+                &::after{
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    bottom: -15px;
+                    width: 170px;
+                    height: 3px;
+                    background-color: #c12ffe;
+                    transform: translateX(-50%);
+                    color: transparent;
+                    background-image: repeating-linear-gradient(90deg, #ffb338 1%, #3e2904 5%, #ffb338 12%);
+                    filter: drop-shadow(2px 6px 6px black);
+                }
+            }
+        }
+
+    }
+}
+

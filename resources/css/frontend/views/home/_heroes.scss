@@ -1,0 +1,172 @@
+#heroes{
+    min-height: 700px;
+    background-color: var(--bg_2);
+    .content{
+        padding: 55px;
+        border-radius: 15px;
+        @include xs(){
+          padding: 10px;
+        }
+        @include sm(){
+          padding: 55px 20px;
+        }
+        .content_body{
+            font-family: 'Oswald', sans-serif;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            border-radius: 8px;
+            margin-top: 50px;
+            @include xs(){
+              display: grid;
+              margin-top: 10px;
+            }
+            @include sm (){
+              margin-top: -20px;
+              display: grid;
+            }
+            @include md (){
+              margin-top: 0;
+            }
+            
+            .text_content{
+                width: 50%;
+                max-width: 700px;
+                padding: 10px 20px;
+                display: grid;
+                align-items: center; 
+                justify-content: space-evenly;
+                z-index: 1;
+                p{
+                  font-weight: 700;
+                  line-height: 1.4rem;
+                  margin: 10px 0;
+                  font-family: var(--alumniSans);
+                  &.text{
+                    line-height: 1.5rem;
+                    font-weight: 500;
+                  }
+                }
+                .text_greating{
+                  font-size: 1.4rem;
+                  line-height: 1.4rem;
+                  font-family: var(--roboto);
+                  font-weight: 500;
+                  font-style: italic;
+                }
+                h1{
+                  font-size: 2.4rem;
+                  line-height: 2.4rem;
+                  justify-content: start;
+                  font-family: var(--playfair);
+                  font-style: italic;
+                  white-space: nowrap;
+                  margin: 10px 0;
+                  margin-left: -5px;
+                }
+               
+                h2{
+                    font-size: 1.2rem;
+                    line-height: 1.2rem;
+                    justify-content: start;
+                    font-family: var(--alumniSans);
+                    color: #028181;
+                    letter-spacing: 1px;
+                    width: max-content;
+                    padding: 5px 0px;
+                    margin: 7px 0;
+                }
+                
+                .button{
+                    margin-top: 30px;
+                    button{
+                      font-size: 20px;
+                      text-transform: uppercase;
+                    }
+
+                } 
+                @include xs(){
+                  width: 100%;
+                  position: relative;
+                  h1{
+                    font-size: 1.7rem;
+                  }
+                  .button{
+                    margin-top: 10px;
+                  }
+                }
+                @include sm(){
+                  width: 100%;
+                  h1{
+                    font-size: 2rem;
+                  }
+                  .button{
+                    margin-top: 10px;
+                  }
+                }
+                @include md(){
+                  width: calc(100% - 240px);
+                  h1{
+                    font-size: 1.8rem;
+                  }
+                  .button{
+                    margin-top: 15px;
+                  }
+                }
+                @include custom_media(0, 320px){
+                  h1{
+                    font-size: 1.3rem;
+                  }
+                  h2{
+                    font-size: 1rem;
+                  }
+                }
+            }
+
+            .heroes_image{
+              display: flex;
+              justify-content: center;
+              width: 50%;
+              height: auto;
+              z-index: 0;
+              max-width: 100%;
+              .image{
+                width: 350px;
+                height: 400px;
+                img{
+                  max-width: 100%;
+                  filter: var(--img_shadow);
+                }
+              }
+              @include xs(){
+                width: 100%;
+                margin-top: 50px;
+                .image{
+                  width: 95%;
+                }
+                
+              }
+              @include sm(){
+                width: 100%;
+                margin-top: 100px;
+              }
+              
+          }
+        }
+    }
+}
+
+  /* Cursor */
+  .txt-type > .txt {
+    border-right: 0.2rem solid #777;
+  }
+
+  // @keyframes animate{
+  //   0%, 100%{
+  //     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  //   }
+  //   50%{
+  //     border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  //   }
+  // }
+

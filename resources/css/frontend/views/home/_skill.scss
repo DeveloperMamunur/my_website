@@ -1,0 +1,160 @@
+#skills{
+    padding: 60px 10px 40px 10px;
+    background-color: var(--bg_1);
+    .content{
+        background-color: transparent;
+        padding: 35px 0;
+        .content_body{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 70px;
+            @include lg(){
+                gap: 30px;
+            }
+            @include custom_media(0, 991.9px){
+                display: grid;
+            }
+            // @include xxl(){
+            //     width: 90%;
+            //     margin: auto;
+            // }
+            .line_progress{
+                width: 50%;
+                margin-bottom: 50px;
+                padding: 0 20px;
+                @include custom_media(0, 991.9px){
+                    width: 100%;
+                }
+                .skill_box{
+                    margin-bottom: 27px;
+                    .parcial{
+                        .info{
+                            display: flex;
+                            justify-content: space-between;
+                            margin-bottom: 8px;
+                            .name{
+                                font-size: 22px;
+                                font-weight: 700;
+                                line-height: 38px;
+                                color: var(--fclr);
+                                text-shadow: 1px 1px var(--font_second);
+                                span{
+                                    color: var(--fclr);
+                                }
+                            }
+                            .percentage_num{
+                                font-size: 16px;
+                                font-weight: 400;
+                                line-height: 30px;
+                                color: var(--nclr);
+                                font-family: var(--poppin);
+                            }
+                        }
+                        .progressBar{
+                            width: 100%;
+                            height: 8px;
+                            background-color: #e0fff0;
+                            border-radius: 5px;
+                            // box-shadow: 0 0 20px var(--font_second);
+                            .parcentage{
+                                position: relative;
+                                width: var(--pct);
+                                height: 8px;
+                                border-radius: 5px;
+                                background: var(--clr);
+                                animation: progress 5s ease-in-out forwards;
+                                opacity: 0;
+                                box-shadow: 0 0 35px var(--clr);
+                            }
+                        }
+                    }
+                }
+            }
+            .curcular_progress{
+                width: 50%;
+                padding: 0 20px;
+                @include custom_media(0, 991.9px){
+                    width: 100%;
+                }
+                ul.framwork_progress{
+                    display: flex;
+                    justify-content: space-around;
+                    flex-wrap: wrap;
+                    gap: 50px;
+                    li{
+                        display: inline-block;
+                        margin: 0 auto;
+                        // width: 48%;
+                        margin-bottom: 30px;
+                        text-align: center;
+                        .progress_circle{
+                            position: relative;
+                            margin-bottom: 10px;
+                            padding: 1px;
+                            width: 150px;
+                            height: 150px;
+                            border-radius: 50%;
+                            background: conic-gradient(var(--clr) 3.6deg, #ededed 0deg);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            box-shadow: 0 0 35px var(--clr);
+                            &::before{
+                                content: '';
+                                position: absolute;
+                                top: 10px;
+                                left: 10px;
+                                right: 10px;
+                                bottom: 10px;
+                                width: 130px;
+                                height: 130px;
+                                border-radius: 50%;
+                                background-color: rgb(11, 44, 63);
+                                box-shadow: inset 0 0 15px var(--clr);
+                            }
+                            .progress_value{
+                                position: relative;
+                                font-size: 30px;
+                                font-weight: 600;
+                                color: #d8edf1;
+                                font-family: var(--poppin);
+                            }
+                            @include xxl(){
+                                width: 160px;
+                                height: 160px;
+                                &::before{
+                                    width: 140px;
+                                    height: 140px;
+                                }
+                            }
+                        }
+                        .skill_name{
+                            margin-top: 20px;
+                            font-size: 22px;
+                            font-weight: 700;
+                            line-height: 38px;
+                            color: var(--fclr);
+                            text-shadow: 1px 1px var(--font_second);
+                            // text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+            
+        }
+
+    }
+}
+
+
+@keyframes progress{
+    0%{
+        width: 0;
+        opacity: 0;
+    }
+    100%{
+        width: var(--pct);
+        opacity: 1;
+    }
+}

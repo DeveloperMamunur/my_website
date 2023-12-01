@@ -1,0 +1,150 @@
+#project{
+    background-color: var(--bg_2);
+    .content{
+        background-color: transparent;
+        padding: 35px 0;
+        margin-bottom: 30px;
+        border-radius: 15px;
+        
+        .content_body{
+            margin: auto;
+            .button_group{
+                padding-bottom: 25px;
+                .item.active{
+                    background-color: var(--light_secondary);
+                    color: white;
+                }
+                @include xs(){
+                    margin-left: 10px;
+                    .item{
+                        margin: 3px;
+                    }
+                }
+            }
+            .card_group{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+                .card{
+                    width: 32%;
+                    height: 350px;
+                    background-color: var(--bg_4);
+                    box-shadow: var(--pr_shadow);
+                    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	                animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                    overflow: hidden;
+                    transition: all .5s ease-in-out;
+                    @include xs(){
+                        width: 94%;
+                    }
+                    @include sm(){
+                        width: 48%;
+                    }
+                    @include md(){
+                        width: 48%;
+                    }
+                    @include lg(){
+                        width: 31.5%;
+                    }
+                    @include xl(){
+                        width: 31.8%;
+                    }
+                    &.filter{
+                        display: none;
+                    
+                        .card_body{
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+                            .content{
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                padding: 20px;
+                                img{
+                                    width: 100%;
+                                    height: 300px;
+                                }
+                            }
+
+                            .hover_content{
+                                transition: all .5s ease;
+                                opacity: 0;
+                                position: absolute;
+                                top: 100%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                -ms-transform: translate(-50%, -50%);
+                                text-align: center;
+                                .content_area{
+                                    display: grid;
+                                    h3{
+                                        background-color: rgb(75, 68, 68);
+                                        border-radius: 2px;
+                                        padding: 10px 0;
+                                        line-height: 1.8rem;
+                                        color: #f6f7fa;
+                                        opacity: .9;
+                                    }
+                                    .button{
+                                        display: flex;
+                                        a{
+                                            margin-right: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &:hover{
+                        .card_body{
+                            .content{
+                                img{
+                                    opacity: .4;
+                                }
+                            }
+                            .hover_content{
+                                opacity: 1;
+                                top: 50%;
+                            }
+                        }
+                    }
+                    &.show{
+                        display: block;
+                    }
+                }
+
+            }
+        }
+
+
+    }
+}
+@-webkit-keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  
+  

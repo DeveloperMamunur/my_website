@@ -1,0 +1,28 @@
+.container
+{
+    width: 75%;
+    max-width: 1400px;
+    margin: 0 auto;
+    @include xs(){
+        width: 100%;
+    }
+    @include sm(){
+        width: 95%;
+    }
+    @include md(){
+        width: 90%;
+    }
+    @include lg(){
+        width: 85%;
+    }
+    @include xl(){
+        width: 80%;
+    }
+    @include xxl(){
+        width: 75%;
+    }
+}
+
+.angle_down{
+    display: none;
+}

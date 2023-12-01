@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+:root{
+    // text color 
+    --font_color: #263131;
+    --font_second: #343434;
+    --text_color: #f5f5f5;
+    --hover_color: #12f7ff;
+    --bgr_color: #250821;
+    --sec_bg_color: #292e33;
+    --a_i_color: #250821;
+
+
+    --pr_border: #eeffff;
+    --light: #dfdfdf;
+    --white: #fff;
+    --bg_1: #e1e2ef;
+    --bg_2: #d8d7ec;
+    --bg_3: #F4F8FF;
+    --bg_4: #dfdbe8;
+    --bg_5: #d8f0f0;
+    --bg_6: #FAFAFA;
+    --bg_7: #ECF3F9;
+    --bg_8: #F8FBF8;
+    --bg_9: #F5FEFD;
+    --bg_10: #F2F7FD;
+    --bg_11: #718096;
+
+    // background-color
+    --yale_blue: #00356B;
+    --bg_blue: #0a3d62;
+    --aegean: #1F456E;
+    --bg_color: #eee;
+    --toggle_btn: #446da5;
+    --Lime: #00FF00;
+
+    // button color  ==========================================
+    --light_dark: #0707079e;
+    --dark: #070707;
+    --light_primary: #4856eb;
+    --primary: #0d6efd;
+	--light_danger: #fb280ce9;
+    --danger: #dc3545;
+    --light_warning: #f9da17e9;
+    --warning: #FBC02D;
+    --light_success: #06d64f;
+    --success: #05b242;
+    --light_info: #03eeff;
+    --info: #0dcaf0;
+    --light_secondary: #86b2d6;
+    --secondary: #507c9f;
+    --light_btn_gray: #7f878d;
+    --btn_gray: #6c757d;
+    --btn_dark_light: #e0e4e8;
+    --btn_light: #e1e2ef;
+
+    // shadow =============================================================
+    --card_shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    --btn_shadow: 0 0 5px #03f40f,
+    0 0 25px #03f40f,
+    0 0 50px #03f40f,
+    0 0 100px #03f40f;
+    --box_shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    
+    --box_shadow2: inset 0px 0px 5px rgba(0, 0, 0, 0.22),
+    inset 0px 0px 15px rgba(0, 0, 0, 0.22),
+    inset 0px 0px 20px rgba(0, 0, 0, 0.22),
+    inset 0px 0px 25px rgba(0, 0, 0, 0.22);
+    
+    --box-shadow3: inset 0px 0px 15px var(--bg_color),
+    inset 0px 0px 25px var(--bg_color),
+    inset 0px 0px 35px var(--bg_color),
+    inset 0px 0px 55px var(--bg_color);
+    --neon_box_shadow: 0 0 .5rem #12f7ff;
+    --font_neon_text_shadow: 0 0 10px rgba(18, 247, 255, 0.3),
+                            0 0 20px rgba(18, 247, 255, 0.3),
+                            0 0 30px rgba(18, 247, 255, 0.3),
+                            0 0 40px rgba(18, 247, 255, 0.3),
+                            0 0 70px rgba(18, 247, 255, 0.3),
+                            0 0 80px rgba(18, 247, 255, 0.3),
+                            0 0 100px rgba(18, 247, 255, 0.3),
+                            0 0 150px rgba(18, 247, 255, 0.3);
+    --pr_shadow: 10px 10px 20px #585656;
+    --contact_shadow: inset 0px 0px 35px #af96a6;
+    
+                         
+
+    // font-family and size =================================================
+    --headingSize: 55px;
+    --poppin: 'Poppins', sans-serif;
+    --playfair: 'Playfair Display', serif;
+    --oswald:  'Oswald', sans-serif;
+    --robotoCondensed: 'Roboto Condensed', sans-serif;
+    --roboto: 'Roboto', sans-serif;
+    --zenDot: 'Zen Dots', sans-serif;
+    --cinzen: 'Cinzel', serif;
+    --cuprum: 'Cuprum', sans-serif;
+    --stalinistOne: 'Stalinist One', sans-serif;
+    --monoton: 'Monoton', sans-serif;
+    --bebasNeue: 'Bebas Neue', sans-serif;
+    --teko: 'Teko', sans-serif;
+    --fjallaOne: 'Fjalla One', sans-serif;
+    --greatVibes: 'Great Vibes', cursive;
+    --alumniSans: 'Alumni Sans', sans-serif;
+    --sixCaps: 'Six Caps', sans-serif;
+    --economica: 'Economica', sans-serif;
+    --Alumni:'Alumni Sans Inline One', sans-serif;
+    --Saira:'Saira Condensed', sans-serif;
+    --Satisfy:'Satisfy', cursive;
+    --Play:'Play', sans-serif;
+    --Yanone:'Yanone Kaffeesatz', sans-serif;
+    --Sacramento:'Sacramento', cursive;
+    --Cookie:'Cookie', cursive;
+    --Unna:'Unna', serif;
+    --Yellowtail:'Yellowtail', cursive;
+    --Tangerine:'Tangerine', cursive;
+    --Parisienne:'Parisienne', cursive;
+    --Petemoss:'Petemoss', cursive;
+}
+
+body.dark{
+    --font_color: #cacaca;
+    --font_second: #ddd;
+    --yale_blue: #718096;
+    --bg_blue: #2D3748;
+    --aegean: #1A202C;
+    --steal: #191919;
+    --pr_border: #dfdfdf;
+
+    --a_i_color: rgba(250, 250, 250, 0.7);
+    --toggle_btn: #718096;
+    --bg_color: #071616;
+    --bg_1: #1A202C;
+    --bg_2: #15262b;
+    --bg_3: #151119;
+    --bg_4: #323946;
+    --bg_5: #0f242d;
+    --bg_6: #13424e;
+    --bg_7: linear-gradient(45deg, #051d48d1, #051d48ba);
+    --bg_8: #F8FBF8;
+    --bg_9: #F5FEFD;
+    --bg_10: #718096;
+
+    --card: #1b242c;
+    --card_color: #eee;
+    --card_shadow: rgba(0,0,0,0.19) 0px 10px 20px,
+         rgba(0,0,0,0.23) 0px 6px 6px;
+    --card_shadow: 15px 15px 30px rgb(25, 25, 25),
+            -15px -15px 30px rgb(60, 60, 60);
+    --box_shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+            rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+            rgba(0,0,0,0.2) 0px -3px 0px inset;
+    --img_shadow:drop-shadow(0px 10px 55px #12f7ff);
+    --pr_shadow: 0px 0px 35px #0c352f;
+    --contact_shadow: inset 0px 0px 35px #022e3a;
+}
+
+

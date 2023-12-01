@@ -1,0 +1,184 @@
+.form{
+    max-width: 600px;
+    margin: auto;
+}
+.form_group{
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+
+}
+.label{
+    display: block;
+    color: rgb(29, 30, 34);
+    margin-bottom: 4px;
+}
+
+.form_control{
+    display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.2rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+.form_control {
+    transition: none;
+}
+}
+.form_control[type=file] {
+    overflow: hidden;
+}
+.form_control[type=file]:not(:disabled):not([readonly]) {
+    cursor: pointer;
+}
+
+.form_control:focus{
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.form_control::-webkit-date-and-time-value {
+    height: 1.5em;
+}
+.form_control::-moz-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+.form_control::placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+.form_control::file-selector-button {
+    padding: 0.375rem 0.75rem;
+    margin: -0.375rem -0.75rem;
+    -webkit-margin-end: 0.75rem;
+    margin-inline-end: 0.75rem;
+    color: #212529;
+    background-color: #e9ecef;
+    pointer-events: none;
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    border-inline-end-width: 1px;
+    border-radius: 0;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .form_control::file-selector-button {
+      transition: none;
+    }
+  }
+  .form_control:hover:not(:disabled):not([readonly])::file-selector-button {
+    background-color: #dde0e3;
+  }
+
+.form_control::-webkit-file-upload-button {
+    padding: 0.375rem 0.75rem;
+    margin: -0.375rem -0.75rem;
+    -webkit-margin-end: 0.75rem;
+    margin-inline-end: 0.75rem;
+    color: #212529;
+    background-color: #e9ecef;
+    pointer-events: none;
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    border-inline-end-width: 1px;
+    border-radius: 0;
+    -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+.form_control::-webkit-file-upload-button {
+    -webkit-transition: none;
+    transition: none;
+}
+}
+.form_control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
+    background-color: #dde0e3;
+}
+
+textarea.form_control {
+    min-height: calc(1.5em + (0.75rem + 2px));
+  }
+
+
+
+
+.form_select {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: .2rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .form_select {
+      transition: none;
+    }
+  }
+  .form_select:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+  .form_select[multiple], .form_select[size]:not([size="1"]) {
+    padding-right: 0.75rem;
+    background-image: none;
+  }
+  .form_select:disabled {
+    background-color: #e9ecef;
+  }
+  .form_select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #212529;
+  }
+form button{
+    margin-top: 8px;
+}
+
+.modal_label{
+    color: #eee;
+}
+.modal input,
+.modal select{
+    margin: 10px 0;
+}
+
+.error{
+    color: red;
+    font-size: 15px;
+}
