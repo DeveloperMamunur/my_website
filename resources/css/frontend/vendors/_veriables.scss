@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
 
 :root{
-    // text color 
+    // text color
     --font_color: #263131;
     --font_second: #343434;
     --text_color: #f5f5f5;
@@ -63,12 +61,12 @@
     0 0 100px #03f40f;
     --box_shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-    
+
     --box_shadow2: inset 0px 0px 5px rgba(0, 0, 0, 0.22),
     inset 0px 0px 15px rgba(0, 0, 0, 0.22),
     inset 0px 0px 20px rgba(0, 0, 0, 0.22),
     inset 0px 0px 25px rgba(0, 0, 0, 0.22);
-    
+
     --box-shadow3: inset 0px 0px 15px var(--bg_color),
     inset 0px 0px 25px var(--bg_color),
     inset 0px 0px 35px var(--bg_color),
@@ -84,40 +82,16 @@
                             0 0 150px rgba(18, 247, 255, 0.3);
     --pr_shadow: 10px 10px 20px #585656;
     --contact_shadow: inset 0px 0px 35px #af96a6;
-    
-                         
+
+
 
     // font-family and size =================================================
     --headingSize: 55px;
     --poppin: 'Poppins', sans-serif;
     --playfair: 'Playfair Display', serif;
     --oswald:  'Oswald', sans-serif;
-    --robotoCondensed: 'Roboto Condensed', sans-serif;
-    --roboto: 'Roboto', sans-serif;
-    --zenDot: 'Zen Dots', sans-serif;
-    --cinzen: 'Cinzel', serif;
-    --cuprum: 'Cuprum', sans-serif;
-    --stalinistOne: 'Stalinist One', sans-serif;
-    --monoton: 'Monoton', sans-serif;
-    --bebasNeue: 'Bebas Neue', sans-serif;
-    --teko: 'Teko', sans-serif;
-    --fjallaOne: 'Fjalla One', sans-serif;
-    --greatVibes: 'Great Vibes', cursive;
     --alumniSans: 'Alumni Sans', sans-serif;
-    --sixCaps: 'Six Caps', sans-serif;
     --economica: 'Economica', sans-serif;
-    --Alumni:'Alumni Sans Inline One', sans-serif;
-    --Saira:'Saira Condensed', sans-serif;
-    --Satisfy:'Satisfy', cursive;
-    --Play:'Play', sans-serif;
-    --Yanone:'Yanone Kaffeesatz', sans-serif;
-    --Sacramento:'Sacramento', cursive;
-    --Cookie:'Cookie', cursive;
-    --Unna:'Unna', serif;
-    --Yellowtail:'Yellowtail', cursive;
-    --Tangerine:'Tangerine', cursive;
-    --Parisienne:'Parisienne', cursive;
-    --Petemoss:'Petemoss', cursive;
 }
 
 body.dark{
@@ -156,5 +130,3 @@ body.dark{
     --pr_shadow: 0px 0px 35px #0c352f;
     --contact_shadow: inset 0px 0px 35px #022e3a;
 }
-
-

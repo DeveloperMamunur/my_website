@@ -45,6 +45,9 @@ th, td{
     justify-content: center;
     align-items: center;
     border: none;
+    @include custom_media(0, 767.9px){
+        display: grid;
+    }
 }
 
 .table_striped{
@@ -71,6 +74,5 @@ th, td{
         text-align: left;
     }
 }
-
 
 

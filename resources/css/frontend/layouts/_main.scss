@@ -27,7 +27,7 @@ main{
                 @include xs(){
                     font-size: 26px;
                 }
-                
+
                 &::before{
                     content: '';
                     position: absolute;

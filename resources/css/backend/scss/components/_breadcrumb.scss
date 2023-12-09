@@ -41,5 +41,15 @@ section{
                 }
             }
         }
+        @include xs(){
+            display: grid;
+            justify-content: end;
+            height: 100px;
+            padding-right: 10px;
+            .breadcrumb_end{
+                display: flex;
+                justify-content: end;
+            }
+        }
     }
 }

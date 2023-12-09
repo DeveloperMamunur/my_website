@@ -3,9 +3,8 @@
     .content{
         background-color: transparent;
         padding: 35px 0;
-        margin-bottom: 30px;
         border-radius: 15px;
-        
+
         .content_body{
             margin: auto;
             .button_group{
@@ -22,49 +21,31 @@
                 }
             }
             .card_group{
-                display: flex;
-                flex-wrap: wrap;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
                 gap: 20px;
                 justify-content: center;
                 .card{
-                    width: 32%;
-                    height: 350px;
+                    width: 100%;
+                    height: 100%;
+                    max-width: 100%;
                     background-color: var(--bg_4);
                     box-shadow: var(--pr_shadow);
                     -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	                animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-                    overflow: hidden;
                     transition: all .5s ease-in-out;
-                    @include xs(){
-                        width: 94%;
-                    }
-                    @include sm(){
-                        width: 48%;
-                    }
-                    @include md(){
-                        width: 48%;
-                    }
-                    @include lg(){
-                        width: 31.5%;
-                    }
-                    @include xl(){
-                        width: 31.8%;
-                    }
+
                     &.filter{
                         display: none;
-                    
+
                         .card_body{
                             position: relative;
-                            width: 100%;
-                            height: 100%;
                             .content{
-                                position: absolute;
-                                top: 0;
-                                left: 0;
                                 padding: 20px;
                                 img{
                                     width: 100%;
-                                    height: 300px;
+                                    height: 100%;
+                                    max-width: 100%;
                                 }
                             }
 
@@ -114,6 +95,18 @@
                         display: block;
                     }
                 }
+                @include xs(){
+                    grid-template-columns: 1fr;
+                }
+                @include sm(){
+                    grid-template-columns: 1fr 1fr;
+                }
+                @include md(){
+                    grid-template-columns: 1fr 1fr;
+                }
+                @include lg(){
+                    grid-template-columns: 1fr 1fr;
+                }
 
             }
         }
@@ -146,5 +139,4 @@
     }
   }
 
-  
-  
+
