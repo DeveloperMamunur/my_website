@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectCategoryController;
 use App\Http\Controllers\ProjectController;
@@ -78,6 +79,11 @@ Route::controller(AdminUserController::class)->middleware(['auth:admin'])->prefi
 Route::controller(UserController::class)->prefix('admin/user')->name('admin.user.')->middleware('auth:admin')->group(function () {
     Route::put('/block/{user}', 'block')->name('block');
     Route::put('/unblock/{user}', 'unblock')->name('unblock');
+});
+
+Route::controller(MailController::class)->prefix('admin/contact')->name('admin.contact.')->middleware('auth:admin')->group(function () {
+    Route::get('/mail/{contact}', 'contactMail')->name('mail');
+    Route::post('/mail-send', 'sendUserMail')->name('mail.send');
 });
 
 Route::middleware('auth:admin')->prefix('admin')->group(function () {

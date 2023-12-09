@@ -45,7 +45,7 @@
                             <td>{{ $contact->subject }}</td>
                             <td>{{ $contact->message }}</td>
                             <td class="action">
-                                <a href="#" class="butn butn_warning butn_md">Send reply</a>
+                                <a href="{{route('admin.contact.mail', $contact->id)}}" class="butn butn_warning butn_md">Send reply</a>
                                 {{-- <a href="{{route('admin.contact.edit', $contact->id )}}" class="butn butn_warning butn_md">Edit</a>
                                 <form action="{{ route('admin.contact.destroy', $contact->id )}}" method="POST">
                                     @csrf
