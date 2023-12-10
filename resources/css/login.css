@@ -20,7 +20,7 @@ html, body{
                  2px 2px 5px rgba(94,104,121,0.288);
   }
 
-.content .text {
+  .content .text {
     font-size: 33px;
     font-weight: 600;
     margin-bottom: 35px;
@@ -29,19 +29,19 @@ html, body{
 .text{
     text-align: center;
 }
-.field {
+  .field {
     height: 50px;
     width: 100%;
     display: flex;
     position: relative;
-    margin-bottom: 10px;
-}
+    margin-bottom: 20px;
+  }
 
-.field:nth-child(2) {
-margin-top: 20px;
-}
+  .field:nth-child(2) {
+    margin-top: 20px;
+  }
 
-.field .input {
+  .field .input {
     height: 100%;
     width: 100%;
     padding-left: 45px;
@@ -52,22 +52,22 @@ margin-top: 20px;
     color: #595959;
     border-radius: 25px;
     box-shadow: inset 2px 2px 5px #BABECC,
-            inset -5px -5px 10px #ffffff73;
-}
+                inset -5px -5px 10px #ffffff73;
+  }
 
-.field .input:focus {
+  .field .input:focus {
     box-shadow: inset 1px 1px 2px #BABECC,
                 inset -1px -1px 2px #ffffff73;
   }
 
-.field .span {
+  .field .span {
     position: absolute;
     color: #595959;
     width: 50px;
     line-height: 55px;
   }
 
-.field .label {
+  .field .label {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -76,26 +76,26 @@ margin-top: 20px;
     color: #666666;
   }
 
-.field .input:valid ~ label {
+  .field .input:valid ~ label {
     opacity: 0;
   }
 
-.forgot-pass {
+  .forgot-pass {
     text-align: left;
     margin: 10px 0 10px 5px;
   }
 
-.forgot-pass a {
+  .forgot-pass a {
     font-size: 16px;
     color: #666666;
     text-decoration: none;
   }
 
-.forgot-pass:hover a {
+  .forgot-pass:hover a {
     text-decoration: underline;
   }
 
-.button {
+  .button {
     margin: 15px 0;
     width: 100%;
     height: 50px;
@@ -112,30 +112,109 @@ margin-top: 20px;
                -5px -5px 10px #ffffff73;
   }
 
-.button:focus {
+  .button:focus {
     color: #3498db;
     box-shadow: inset 2px 2px 5px #BABECC,
                inset -5px -5px 10px #ffffff73;
   }
 
-.sign-up {
+
+.content .link_social{
+    margin: 10px auto;
+    width: 100%;
+
+}
+
+.content .link_social .link_butn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    width: 100% !important;
+    text-align: center;
+    font-size: 18px;
+    line-height: 50px;
+    font-weight: 600;
+    background: #524e4e;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #d4d4d4;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px #BABECC,
+               -5px -5px 10px #ffffff73;
+  }
+
+  .content .link_social .link_butn:hover{
+    opacity: .8;
+  }
+  .link_butn:focus {
+    color: #3498db;
+    box-shadow: inset 2px 2px 5px #BABECC,
+               inset -5px -5px 10px #ffffff73;
+  }
+
+
+  .sign-up {
     margin: 10px 0;
     color: #595959;
     font-size: 16px;
   }
 
-.sign-up a {
+  .sign-up a {
     color: #3498db;
     text-decoration: none;
   }
 
-.sign-up a:hover {
+  .sign-up a:hover {
     text-decoration: underline;
   }
 
-.error{
+  .verify_text{
+    font-size: 14px;
+  }
+
+  .verifY_message{
+    color: green;
+    margin-top: 20px;
+  }
+.remember_me{
+    display: flex;
+    justify-content: flex-start;
+}
+.forgot_pass{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.message{
     color: red;
-    font-size: 15px;
-    margin-bottom: 15px;
-    margin-left: 5px;
+}
+.or{
+    margin: 15px auto;
+    width: inherit;
+}
+
+
+.link_social .link_butn.google{
+    background-color: #FBBC05;
+    color: #545454;
+}
+
+.link_social .link_butn.facebook{
+    background-color: #1152ca;
+    color: #dbdada;
+}
+
+.link_social .link_butn span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: #eee;
+    color: #202020;
 }
