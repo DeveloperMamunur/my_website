@@ -23,6 +23,14 @@
                     <span class="link_name">Contact</span>
                 </a>
             </li>
+            <li class="s_N_item {{ Request::is('user') ? 'active':'' }}">
+                <a href="{{route('admin.user.index')}}" class="sidebarBtn">
+                    <span class="material-symbols-outlined link_icon">
+                        group
+                    </span>
+                    <span class="link_name">Users</span>
+                </a>
+            </li>
             <li class="s_N_item {{ Request::is('testimonial') ? 'active':'' }}">
                 <a href="{{route('admin.testimonial.index')}}" class="sidebarBtn">
                     <span class="material-symbols-outlined link_icon">

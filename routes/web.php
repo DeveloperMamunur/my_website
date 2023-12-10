@@ -93,6 +93,8 @@ Route::controller(AdminUserController::class)->middleware(['auth:admin'])->prefi
 });
 
 Route::controller(UserController::class)->prefix('admin/user')->name('admin.user.')->middleware('auth:admin')->group(function () {
+    Route::get('', 'index')->name('index');
+    Route::get('/{user}/view', 'show')->name('show');
     Route::put('/block/{user}', 'block')->name('block');
     Route::put('/unblock/{user}', 'unblock')->name('unblock');
 });

@@ -9,7 +9,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::latest()->paginate(12);
         return view('admin.contact.index', compact('contacts'));
     }
     public function store(Request $request)

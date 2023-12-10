@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        $users = User::latest()->paginate(12);
+        return view('admin.user.index', compact('users'));
+    }
     public function update(Request $request, User $user)
     {
         if ($request->hasFile('image')) {
@@ -23,6 +28,11 @@ class UserController extends Controller
         }
 
         return redirect()->route('profile.edit')->with('message', 'Image Update Successfully');
+    }
+
+    public function show(User $user)
+    {
+        return view('admin.user.view', compact('user'));
     }
 
     public function phone(Request $request, User $user)
@@ -46,7 +56,7 @@ class UserController extends Controller
         $user->status = 2;
         $user->update();
 
-        return redirect()->route('admin.dashboard')->with('success', 'Review Unpublish Successfuly');
+        return back()->with('success', 'Review Unpublish Successfuly');
     }
 
     public function unblock(User $user)
@@ -54,6 +64,6 @@ class UserController extends Controller
         $user->status = 1;
         $user->update();
 
-        return redirect()->route('admin.dashboard')->with('success', 'Review Publish Successfuly');
+        return back()->with('success', 'Review Publish Successfuly');
     }
 }

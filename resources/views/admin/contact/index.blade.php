@@ -46,18 +46,15 @@
                             <td>{{ $contact->message }}</td>
                             <td class="action">
                                 <a href="{{route('admin.contact.mail', $contact->id)}}" class="butn butn_warning butn_md">Send reply</a>
-                                {{-- <a href="{{route('admin.contact.edit', $contact->id )}}" class="butn butn_warning butn_md">Edit</a>
-                                <form action="{{ route('admin.contact.destroy', $contact->id )}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="butn butn_danger butn_md delete">Delete</button>
-                                </form> --}}
                             </td>
                         </tr>
 
                         @endforeach
                     </tbody>
                 </table>
+                <div class="pagination pg_body">
+                    {{$contacts->links('vendor.pagination.default')}}
+                </div>
             </div>
         </div>
         <!-- Content Area end  -->

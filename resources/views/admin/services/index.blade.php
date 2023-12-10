@@ -59,6 +59,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="pagination pg_body">
+                    {{$services->links('vendor.pagination.default')}}
+                </div>
             </div>
         </div>
         <!-- Content Area end  -->
