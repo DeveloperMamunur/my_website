@@ -14,6 +14,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServiceDetailController;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\SocialiteLoginController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WorkProcessController;
@@ -41,6 +42,21 @@ Route::controller(ContactController::class)->prefix('contact')->name('contact.')
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+// github login
+Route::get('/auth/github/redirect', [SocialiteLoginController::class, 'githubredirect'])->name('auth.github');
+
+Route::get('/auth/github/callback', [SocialiteLoginController::class, 'githubcallback']);
+
+// google login
+Route::get('/auth/google/redirect', [SocialiteLoginController::class, 'googleredirect'])->name('auth.google');
+
+Route::get('/auth/google/callback', [SocialiteLoginController::class, 'googlecallback']);
+
+// facebook login
+Route::get('/auth/facebook/redirect', [SocialiteLoginController::class, 'facebookredirect'])->name('auth.facebook');
+
+Route::get('/auth/facebook/callback', [SocialiteLoginController::class, 'facebookcallback']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -7,6 +7,18 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+
+    <div class="link_social">
+        <a href="#" class="link_butn facebook"><span class="icon-facebook-f"></span>Login with Facebook</a>
+    </div>
+    <div class="link_social">
+        <a href="{{route('auth.google')}}" class="link_butn google"><span class="icon-google"></span>Login with Google</a>
+    </div>
+    <div class="link_social">
+        <a href="#" class="link_butn"><span class="icon-github"></span>Login with Github</a>
+    </div>
+    <h3 class="or">------------------------OR----------------------</h3>
+
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="field">
