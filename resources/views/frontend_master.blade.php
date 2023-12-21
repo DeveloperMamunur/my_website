@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
         <!-- Styles -->
-        @vite(['resources/css/frontend/app.scss'])
+        @vite(['resources/css/index.css'])
     </head>
     <body>
         <div class="body">
