@@ -1,0 +1,48 @@
+.notify_meeage_read{
+    background-color: #50b694;
+    padding: 16px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: #eee;
+    .read_notify{
+        color: #e2fffe;
+        margin-right: 30px;
+    }
+}
+
+.notify_meeage_unread{
+    background-color: #49b7eb;
+    padding: 16px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: #eee;
+    .unread_notify{
+        color: #ff0000;
+        margin-right: 30px;
+    }
+}
+
+.not_butn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    line-height: 40px;
+    padding: 10px 20px;
+    margin-top: 15px;
+    .readUnread{
+        margin-right: 20px;
+    }
+    &.unread{
+        background-color: #49b7eb;
+    }
+    &.read{
+        background-color: #8ad8a1;
+    }
+}
+
+.mr_1{
+    margin-right: 10px;
+}

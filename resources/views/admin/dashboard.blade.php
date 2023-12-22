@@ -21,62 +21,55 @@
         <!-- Content Area start  -->
         <div class="content main-container">
             <div class="main-cards">
-                <table class="table">
-                    <thead>
-                        <th>Sl No</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>phone</th>
-                        <th>photo</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </thead>
-                    <tbody>
-                        @php
-                            $x = 1;
-                        @endphp
-                        @foreach ($users as $user)
-                        <tr class="center">
-                            <td>{{ $x++ }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->phone }}</td>
-                            <td>
-                                @if ($user->image)
-                                    <img src="{{ asset($user->image) }}" width="50px" />
-                                @else
-                                    <img src="{{ asset('assets/backend/images/avatar.jpg') }}" width="50px" class="profile_img" />
-                                @endif
-                            </td>
-                            <td>{{ $user->status == 1 ? 'Active': 'Block' }}</td>
-                            <td class="action">
-                                @if ($user->status == 1)
-                                    <form action="{{route('admin.user.block', $user->id )}}" method="POST">
-                                        @csrf
-                                        @method('put')
-                                        <button type="submit" class="butn butn_info butn_sm delete">click to Block</button>
-                                    </form>
-                                 @else
-                                    <form action="{{route('admin.user.unblock', $user->id )}}" method="POST">
-                                        @csrf
-                                        @method('put')
-                                        <button type="submit" class="butn butn_info butn_sm delete">click to Active</button>
-                                    </form>
-                                @endif
-                                <a href="{{route('admin.user.show',$user->id)}}" class="butn butn_info butn_sm butn_eye">
-                                    <span class="material-symbols-outlined ">
-                                        visibility
-                                    </span>
-                                    View
-                                </a>
-                            </td>
-                        </tr>
+                @foreach ($users as $user)
 
-                        @endforeach
-                    </tbody>
-                </table>
+                    @php
+                        $users = App\Models\User::find($user->id);
+                    @endphp
+                    @if ($users->unreadNotifications != null)
+                        @foreach ($users->unreadNotifications as $notification)
+                            @if ($notification->type == 'App\Notifications\ChatNotification')
+                                <div class="not_butn unread">
+                                    <div>
+                                        <b class="font-black"><span style="margin-right: 15px">User Id No: {{$user->id}}</span>{{$user->name}}</b>
+                                        {{$notification->data['message']}}
+                                    </div>
+                                    <div>
+                                        <a href="{{route('admin.message.index',$user->id)}}" class="butn butn_primary butn_sm mr_1">
+                                            Click to Chat
+                                        </a>
+                                        <a href="{{route('chat.markasread', [$notification->data['user_id'], $notification->id])}}"  class="butn butn_danger butn_sm">
+                                            <span class="readUnread">Unread</span>
+                                        </a>
+                                    </div>
+                                    {{$notification->created_at->diffForHumans()}}
+                                </div>
+                                @endif
+                            @endforeach
+                        @endif
+
+                    @foreach ($users->readNotifications as $notification)
+                        @if ($notification->type == 'App\Notifications\ChatNotification')
+                            <div class="not_butn read">
+                                <div>
+                                    <b class="font-black"><span style="margin-right: 15px">User Id No: {{$user->id}}</span>{{$user->name}}</b>
+                                    {{$notification->data['message']}}
+                                </div>
+                               <div>
+                                    <a href="{{route('admin.message.index',$user->id)}}" class="butn butn_primary butn_sm mr_1">
+                                        Click to Chat
+                                    </a>
+                                    <a href="{{route('chat.markasread', [$notification->data['user_id'], $notification->id])}}" class="butn butn_info butn_sm">
+                                        <span class="readUnread">read</span>
+                                    </a>
+                                </div>
+                                {{$notification->created_at->diffForHumans()}}
+                            </div>
+                        @endif
+                    @endforeach
+                @endforeach
             </div>
         </div>
-        <!-- Content Area end  -->
     </section>
+
 </x-admin-layout>

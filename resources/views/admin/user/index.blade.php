@@ -55,6 +55,52 @@
                                     <form action="{{route('admin.user.block', $user->id )}}" method="POST">
                                         @csrf
                                         @method('put')
+                                        <button type="submit" class="butn butn_info butn_sm delete">Click to Block</button>
+                                    </form>
+                                 @else
+                                    <form action="{{route('admin.user.unblock', $user->id )}}" method="POST">
+                                        @csrf
+                                        @method('put')
+                                        <button type="submit" class="butn butn_info butn_md delete">Click to Active</button>
+                                    </form>
+                                @endif
+                                <a href="{{route('admin.user.show',$user->id)}}" class="butn butn_info butn_sm butn_eye">
+                                    <span class="material-symbols-outlined ">
+                                        visibility
+                                    </span>
+                                    View
+                                </a>
+
+                                <a href="{{route('admin.message.index',$user->id)}}" class="butn butn_info butn_sm butn_eye">
+                                    <span class="material-symbols-outlined">
+                                        chat
+                                    </span>
+                                    Chat
+                                    @php
+
+                                        $user = App\Models\User::find($user->id);
+                                    @endphp
+
+                                    {{$user->unreadNotifications->count()}}
+                                </a>
+                            </td>
+                        </tr><tr class="center">
+                            <td>{{ $x++ }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>
+                                @if ($user->image)
+                                    <img src="{{ asset($user->image) }}" width="100px" />
+                                @else
+                                    <img src="{{ asset('assets/backend/images/avatar.jpg') }}" width="100px" class="profile_img" />
+                                @endif
+                            </td>
+                            <td>{{ $user->status == 1 ? 'Active': 'Block' }}</td>
+                            <td class="action">
+                                @if ($user->status == 1)
+                                    <form action="{{route('admin.user.block', $user->id )}}" method="POST">
+                                        @csrf
+                                        @method('put')
                                         <button type="submit" class="butn butn_info butn_sm delete">click to Block</button>
                                     </form>
                                  @else

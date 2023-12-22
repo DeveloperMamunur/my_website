@@ -1,106 +1,58 @@
-<x-app-layout>
+<x-admin-layout>
     <section class="breadcrumb_area">
         <ul class="breadcrumb">
             <li>
                 <span>Home</span>
             </li>
         </ul>
+        <div class="breadcrumb_end">
+            <button class="butn butn_secondary butn_sm">
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+                <span>Add</span>
+            </button>
+        </div>
     </section>
     <!-- breadcrumb area end -->
     <!-- main body start  -->
     <section class="main-body">
         <!-- ================================================= -->
         <!-- Content Area start  -->
-        <div class="content main-container">
-            <div class="main-cards">
-                <h1>Notification</h1>
-                 @foreach (auth()->user()->unreadNotifications as $notification)
-                     @if ($notification->type == 'App\Notifications\UserNotification')
-                        <a class="notify_meeage_unread" href="{{route('markasread', $notification->id)}}">
-                            <div>
-                                <b class="font-black">{{$notification->data['name']}}</b> Thank you for registration. Recieve you my service for your need.
-                            </div>
-                            <div class="unread_notify">
-                                Unread
-                            </div>
-                        </a>
-                    @endif
-                @endforeach
-                @foreach (auth()->user()->readNotifications as $notification)
-                    @if ($notification->type == 'App\Notifications\UserNotification')
-                        <a class="notify_meeage_read" href="{{route('markasread', $notification->id)}}">
-                            <div>
-                                <b class="font-black">{{$notification->data['name']}}</b> Thank you for registration. Recieve you my service for your need.
-                            </div>
-                            <div class="read_notify">
-                                Read
-                            </div>
-                        </a>
-                    @endif
-                @endforeach
-            </div>
-        </div>
-            {{-- message area  --}}
+        {{-- message area  --}}
         <div class="content main_container">
             <div class="main-cards chats">
                 <div class="chat_area">
                     <div class="chat_header">
                         <div class="user">
-                            @foreach ($admin as $item)
-                                <div class="photo">
-                                    @if ($item->image)
-                                        <img src="{{asset($item->image)}}" width="40px" alt="">
-                                    @else
-                                        <img src="{{asset('assets/backend/images/avatar.jpg')}}" width="40px" alt="">
-                                    @endif
-                                </div>
-                                <div class="name">
-                                    {{$item->name}}
-                                </div>
-                            @endforeach
+                            <div class="photo">
+                                @if ($user->image)
+                                    <img src="{{asset($user->image)}}" width="40px" alt="">
+                                @else
+                                    <img src="{{asset('assets/backend/images/avatar.jpg')}}" width="40px" alt="">
+                                @endif
+                            </div>
+                            <div class="name">
+                                {{$user->name}}
+                            </div>
                         </div>
-                        <div class="right_text">
-                            <span>Message me for your needs</span>
+                        <div class="butn">
+                            <a href="{{route('admin.user.index')}}" class="butn butn_secondary butn_sm">
+                                <span class="material-symbols-outlined">
+                                    west
+                                </span>
+                                <span>back</span>
+                            </a>
                         </div>
                     </div>
-                    <div class="chat_content" Id="{{Auth::user()->id}}">
-                        {{-- @foreach ($chats as $chat)
-                            @if (Auth::user()->id == $chat->user_id && $chat->admin_id == false)
-                                <div class="self_message">
-                                    <div class="u_photo">
-                                        @if (Auth::user()->image)
-                                            <img src="{{asset(Auth::user()->image)}}" width="40px" alt="">
-                                        @else
-                                            <img src="{{asset('assets/backend/images/avatar.jpg')}}" width="40px" alt="">
-                                        @endif
-                                    </div>
-                                    <div class="chat_text">
-                                        <p>{{$chat->message}}</p>
-                                    </div>
-                                </div>
-                            @endif
-
-                            @if (Auth::user()->id  == $chat->user_id && $chat->admin_id == true)
-                                <div class="other_massage">
-                                    <div class="u_photo">
-                                        @if ($chat->admin->image)
-                                            <img src="{{asset($chat->admin->image)}}" width="40px" alt="">
-                                        @else
-                                            <img src="{{asset('assets/backend/images/avatar.jpg')}}" width="40px" alt="">
-                                        @endif
-                                    </div>
-                                    <div class="chat_text">
-                                        <p>{{$chat->message}}</p>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach --}}
+                    <div class="chat_content" Id="{{$user->id}}">
 
                     </div>
                     <div class="chat_footer">
-                        <form action="{{route('user.message.store')}}" class="insert_form" method="post" enctype="multipart/form-data">
+                        <form action="{{route('admin.message.store')}}" id="insert_form" class="insert_form" method="post" enctype="multipart/form-data">
                             @csrf
-                            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                            <input type="hidden" name="admin_id" value="{{Auth::guard('admin')->user()->id}}">
+                            <input type="hidden" name="user_id" value="{{ $user->id }}">
                             <div class="group">
                                 <label for="image" class="file_label">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="25" width="24" viewBox="0 0 512 512"><path opacity="1" fill="#fff" d="M512 416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96C0 60.7 28.7 32 64 32H192c20.1 0 39.1 9.5 51.2 25.6l19.2 25.6c6 8.1 15.5 12.8 25.6 12.8H448c35.3 0 64 28.7 64 64V416zM232 376c0 13.3 10.7 24 24 24s24-10.7 24-24V312h64c13.3 0 24-10.7 24-24s-10.7-24-24-24H280V200c0-13.3-10.7-24-24-24s-24 10.7-24 24v64H168c-13.3 0-24 10.7-24 24s10.7 24 24 24h64v64z"/></svg>
@@ -118,7 +70,7 @@
         </div>
         <!-- Content Area end  -->
     </section>
-    @push('chat_user')
+    @push('chat')
     <script src="{{asset('assets/plugin/jquery-3.7.1.min.js')}}"></script>
 
     <script>
@@ -164,22 +116,34 @@
             fetchChat();
 
             function fetchChat() {
-
                 $.ajax({
                     type: "GET",
-                    url: "/fetch-chat",
+                    url: "/admin/fetch-chat",
                     dataType: "json",
                     success: function(res) {
                         $('.chat_content').html("");
+                        // $('.chat_other').html("");
 
                         const itemId = $('.chat_content').attr('Id');
 
                         $.each(res.chats, function(key, item) {
                             if (itemId == item.user_id) {
+                                if (item.admin_id == 1){
+                                    $('.chat_content').append(
+                                       ' <div class="self_message">'+
+                                            '<div class="u_photo">'+
+                                                '<img src="'+'/'+ item.admin.image +'" width="40px" alt="">'+
+                                            '</div>'+
+                                            '<div class="chat_text">'+
+                                                '<p>'+item.message+'</p>'+
+                                            '</div>'+
+                                        '</div>'
+                                    )
+                                }
                                 if (item.admin_id == null){
                                     if(item.users.image != null){
                                         $('.chat_content').append(
-                                            ' <div class="self_message">'+
+                                            '<div class="other_massage">'+
                                                 '<div class="u_photo">'+
                                                     '<img src="'+'/'+ item.users.image +'" width="40px" alt="">'+
                                                 '</div>'+
@@ -188,9 +152,9 @@
                                                 '</div>'+
                                             '</div>'
                                         )
-                                    } else {
+                                    } else{
                                         $('.chat_content').append(
-                                            ' <div class="self_message">'+
+                                            '<div class="other_massage">'+
                                                 '<div class="u_photo">'+
                                                     '<img src="/assets/backend/images/avatar.jpg" width="40px" alt="">'+
                                                 '</div>'+
@@ -201,27 +165,16 @@
                                         )
                                     }
                                 }
-                                if (item.admin_id == 1){
-                                    $('.chat_content').append(
-                                       '<div class="other_massage">'+
-                                            '<div class="u_photo">'+
-                                                '<img src="'+'/'+ item.admin.image +'" width="40px" alt="">'+
-                                            '</div>'+
-                                            '<div class="chat_text">'+
-                                                '<p>'+item.message+'</p>'+
-                                            '</div>'+
-                                        '</div>'
-                                    )
-                                }
 
                             }
 
                         });
-                        window.setTimeout(fetchChat, 1000);
+
+                        window.setTimeout(fetchChat, 2000);
                     }
                 })
             }
         })
         </script>
     @endpush
-</x-app-layout>
+</x-admin-layout>

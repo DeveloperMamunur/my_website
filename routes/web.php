@@ -4,9 +4,13 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\Notification\ChatNotificationController;
+use App\Http\Controllers\Notification\UserNotificationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectCategoryController;
 use App\Http\Controllers\ProjectController;
@@ -39,9 +43,15 @@ Route::controller(ContactController::class)->prefix('contact')->name('contact.')
 });
 
 // backend route start
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('notify', [UserNotificationController::class, 'notify'])->name('notify');
+Route::get('/markasread/{id}', [UserNotificationController::class, 'markasread'])->name('markasread');
+
+//admin chat notify route start
+Route::get('chat-notify', [ChatNotificationController::class, 'chatnotify'])->name('chat.notify')->middleware('auth');
+Route::get('/admin/{user}/markasread/{id}', [ChatNotificationController::class, 'markasread'])->name('chat.markasread')->middleware('auth:admin');
+
+// backend route start
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 // github login
 Route::get('/auth/github/redirect', [SocialiteLoginController::class, 'githubredirect'])->name('auth.github');
@@ -50,7 +60,6 @@ Route::get('/auth/github/callback', [SocialiteLoginController::class, 'githubcal
 
 // google login
 Route::get('/auth/google/redirect', [SocialiteLoginController::class, 'googleredirect'])->name('auth.google');
-
 Route::get('/auth/google/callback', [SocialiteLoginController::class, 'googlecallback']);
 
 // facebook login
@@ -78,6 +87,16 @@ Route::controller(ReviewController::class)->prefix('review')->name('review.')->m
     Route::put('/{review}', 'update')->name('update');
     Route::delete('/{review}', 'destroy')->name('destroy');
 });
+
+// chat controller start
+Route::controller(ChatController::class)->group(function () {
+    Route::get('/admin/{user}/chat', 'index')->name('admin.message.index')->middleware('auth:admin');
+    Route::post('/admin/chat', 'adminstore')->name('admin.message.store')->middleware('auth:admin');
+    Route::post('/chat', 'userstore')->name('user.message.store')->middleware('auth');
+    Route::get('/fetch-chat', 'fetch_Chat')->middleware('auth');
+    Route::get('/admin/fetch-chat', 'fetchChat')->middleware('auth:admin');
+});
+// chat controller end
 
 // admin dashboard start
 // ====================================================================

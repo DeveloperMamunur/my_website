@@ -8,9 +8,9 @@
         <title>Dashboard</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
-        {{-- <script src="{{asset('assets/plugin/sweetalert2.js')}}"></script> --}}
-        <!-- Scripts -->
+       <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js',])
+        @stack('chat_user')
     </head>
     <body>
         <div class="container">
