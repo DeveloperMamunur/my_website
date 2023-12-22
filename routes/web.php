@@ -18,7 +18,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServiceDetailController;
 use App\Http\Controllers\SkillController;
-use App\Http\Controllers\SocialiteLoginController;
+use App\Http\Controllers\SocialLoginController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WorkProcessController;
@@ -54,18 +54,18 @@ Route::get('/admin/{user}/markasread/{id}', [ChatNotificationController::class, 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 // github login
-Route::get('/auth/github/redirect', [SocialiteLoginController::class, 'githubredirect'])->name('auth.github');
+Route::get('/auth/github/redirect', [SocialLoginController::class, 'githubredirect'])->name('auth.github');
 
-Route::get('/auth/github/callback', [SocialiteLoginController::class, 'githubcallback']);
+Route::get('/auth/github/callback', [SocialLoginController::class, 'githubcallback']);
 
 // google login
-Route::get('/auth/google/redirect', [SocialiteLoginController::class, 'googleredirect'])->name('auth.google');
-Route::get('/auth/google/callback', [SocialiteLoginController::class, 'googlecallback']);
+Route::get('/auth/google/redirect', [SocialLoginController::class, 'googleredirect'])->name('auth.google');
+Route::get('/auth/google/callback', [SocialLoginController::class, 'googlecallback']);
 
 // facebook login
-Route::get('/auth/facebook/redirect', [SocialiteLoginController::class, 'facebookredirect'])->name('auth.facebook');
+Route::get('/auth/facebook/redirect', [SocialLoginController::class, 'facebookredirect'])->name('auth.facebook');
 
-Route::get('/auth/facebook/callback', [SocialiteLoginController::class, 'facebookcallback']);
+Route::get('/auth/facebook/callback', [SocialLoginController::class, 'facebookcallback']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -201,7 +201,6 @@ Route::controller(AboutController::class)->prefix('admin/about')->name('admin.ab
     Route::post('/store', 'store')->name('store');
     Route::get('/{about}/edit', 'edit')->name('edit');
     Route::put('/{about}', 'update')->name('update');
-    // Route::delete('/{about}', 'destroy')->name('destroy');
 });
 
 // Contact section
